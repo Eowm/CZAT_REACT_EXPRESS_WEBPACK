@@ -49,11 +49,11 @@ class App extends Component {
 	}
 
 	render() {
-		return this.state.name !== '' ? this.renderLayotu() : this.renderUserForm();
+		return this.state.name !== '' ? this.renderLayout() : this.renderUserForm();
 	}
 
 
-	renderLeyout(){
+	renderLayout(){
 		return(
 			<div className={styles.App}>
 				<div className={styles.AppHeader}>
@@ -68,6 +68,7 @@ class App extends Component {
           			<UsersList
             			users={this.state.users}
           			/>
+          		</div>
           		<div className={styles.MessageWrapper}>
             		<MessageList
             			messages={this.state.messages}
@@ -77,13 +78,13 @@ class App extends Component {
               			name={this.state.name}
             		/>
           		</div>
-        	</div>
       		</div>
    		);
 	}
 
 	renderUserForm() {
-  		return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
+  		//return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
+  		return (<p>jeden dwa trzy</p>)
 	}
 }
 

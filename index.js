@@ -17,23 +17,23 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 	socket.on('join', function(name){
-		userSerivce.addUser({
+		userService.addUser({
 			id: socket.id,
 			name
 		});
 		io.emmit('update', {
-			users: userSerivce.getAllUsers()
+			users: userService.getAllUsers()
 		})
 	})
 	socket.on('disconnect', () => {
-		userSerivce.removeUser(socket.id);
-		socket.brodcast.emit('update', {
-			users: userSerivce.getAllUsers()
+		userService.removeUser(socket.id);
+		socket.broadcast.emit('update', {
+			users: userService.getAllUsers()
 		})
 	})
 	socket.on('message', function(message) {
-		const {name} = userSerivce.getUserById(socket.id);
-		socket.brodcast.emit('message', {
+		const {name} = userService.getUserById(socket.id);
+		socket.broadcast.emit('message', {
 			text: message.text,
 			from: name
 		})
