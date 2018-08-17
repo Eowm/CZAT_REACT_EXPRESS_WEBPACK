@@ -8,10 +8,10 @@ class UserForm extends Component {
 		this.state = {name: ''};
 	}
 
-	handelSubmit(e) {
-		e.preventDefault();
-		this.porps.onUserSubmit(this.state.name);
-	}
+	handleSubmit(e) {
+    e.preventDefault();
+    this.props.onUserSubmit(this.state.name);
+  	}	
 
 	handleChange(e) {
 		this.setState({name: e.target.value});
@@ -19,7 +19,7 @@ class UserForm extends Component {
 
 	render() {
 		return(
-			<form className={styles.UserForm} onSubmit={e = this.handelSubmit(e)}>
+			<form className={styles.UserForm} onSubmit={e => this.handleSubmit(e)}>
 				<input
 					className={styles.UserInput}
 					placeholder='Write your nickname and press enter'

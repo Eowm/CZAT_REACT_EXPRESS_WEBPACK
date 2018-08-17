@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "build": "webpack source-map --env production",
-   "start": "webpack-dev-server --hot source-map --env development"
- },
+    "build": "webpack --source-map --env production",
+    "start": "webpack-dev-server --source-map --hot --env development"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

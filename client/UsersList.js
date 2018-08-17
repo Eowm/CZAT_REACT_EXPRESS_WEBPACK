@@ -6,7 +6,7 @@ import styles from './UsersList.css';
 const UserList = props => (
 	<div className={styles.Users}>
 		<div className={styles.UsersOnline}>
-			{props.user.length} people online
+			{props.users.length} people online
 		</div>
 		<ul className={styles.UserList}>
 			{
