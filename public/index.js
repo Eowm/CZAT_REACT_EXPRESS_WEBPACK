@@ -21,7 +21,7 @@ io.on('connection', function(socket){
 			id: socket.id,
 			name
 		});
-		io.emmit('update', {
+		io.emit('update', {
 			users: userSerivce.getAllUsers()
 		})
 	})

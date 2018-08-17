@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import styles from './UsersList.css';
 
-const UserList = props => (
+const UsersList = props => (
 	<div className={styles.Users}>
 		<div className={styles.UsersOnline}>
 			{props.users.length} people online
@@ -22,4 +22,4 @@ const UserList = props => (
   	</div>
 )
 
-export default UserList;
+export default UsersList;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import styles from './MessageForm.css';
 
 class MessageForm extends Component {
 	constructor(props){
@@ -34,3 +35,5 @@ class MessageForm extends Component {
     	);
   	}
 }
+
+export default MessageForm;
