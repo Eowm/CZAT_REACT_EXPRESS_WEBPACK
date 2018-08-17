@@ -12,28 +12,28 @@ const userService = new UsersService();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname + 'index.html');
+	res.sendFile(__dirname + '/public/index.html');
 })
 
 io.on('connection', function(socket){
 	socket.on('join', function(name){
-		userService.addUser({
+		userSerivce.addUser({
 			id: socket.id,
 			name
 		});
-		io.emmit('update', {
-			users: userService.getAllUsers()
+		io.emit('update', {
+			users: userSerivce.getAllUsers()
 		})
 	})
 	socket.on('disconnect', () => {
-		userService.removeUser(socket.id);
-		socket.broadcast.emit('update', {
-			users: userService.getAllUsers()
+		userSerivce.removeUser(socket.id);
+		socket.brodcast.emit('update', {
+			users: userSerivce.getAllUsers()
 		})
 	})
 	socket.on('message', function(message) {
-		const {name} = userService.getUserById(socket.id);
-		socket.broadcast.emit('message', {
+		const {name} = userSerivce.getUserById(socket.id);
+		socket.brodcast.emit('message', {
 			text: message.text,
 			from: name
 		})
