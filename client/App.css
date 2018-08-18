@@ -36,12 +36,13 @@ body {
 .AppBody {
     display: flex;
     flex-direction: row;
-    flex: 1;
+    flex: 0.4;
 }
 
 .MessageWrapper {
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    bottom:0;
+    right: 0;
     width: 75vw;
     flex: 1;
 }

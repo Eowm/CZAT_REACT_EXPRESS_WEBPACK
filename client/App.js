@@ -23,13 +23,13 @@ class App extends Component {
 		};
 	}
 
-	componentDidMound() {
+	componentDidMount() {
 		socket.on('message', message => this.messageReceive(message));
 		socket.on('update', ({users}) => this.chatUpdate(users));
 	}
 
 	messageReceive(message) {
-		const messages = [message, ...this.state.messages];
+		const messages = [...this.state.messages, message];
 		this.setState({messages});
 	}
 
@@ -38,9 +38,17 @@ class App extends Component {
 	}
 
 	handleMessageSubmit(message) {
-		const messages = [message, ...this.state.messages];
+		if(this.state.messages.length > 5){
+			const messages = [this.state.messages.slice(0, -1), message];
+			this.setState({messages});
+			socket.emit('message', message);
+		}
+		else{
+		const messages = [...this.state.messages, message];
 		this.setState({messages});
 		socket.emit('message', message)
+		}
+		
 	}
 
 	handleUserSubmit(name) {

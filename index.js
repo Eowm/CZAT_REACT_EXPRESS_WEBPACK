@@ -17,10 +17,12 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 	socket.on('join', function(name){
+		console.log(name);
 		userService.addUser({
 			id: socket.id,
 			name
 		});
+		console.log(userService.getAllUsers());
 		io.emit('update', {
 			users: userService.getAllUsers()
 		})
