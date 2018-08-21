@@ -5,13 +5,14 @@
     justify-content: flex-start;
     flex-direction: column;
     border-right: 1px solid #ccc;
-
 }
 
 .UsersOnline {
     padding: 10px;
-    text-align: center;
+    text-align: left;
     background: #ccc;
+    padding-left: 10vw;
+    font-weight: bold;
 }
 
 .UsersList {

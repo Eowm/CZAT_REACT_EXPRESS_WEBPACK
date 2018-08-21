@@ -29,8 +29,14 @@ class App extends Component {
 	}
 
 	messageReceive(message) {
+		const size = 30
+		if(this.state.messages.length > size){
+			const messages = [...this.state.messages.slice(1, size+1), message];
+			this.setState({messages});
+		} else{
 		const messages = [...this.state.messages, message];
 		this.setState({messages});
+		}
 	}
 
 	chatUpdate(users) {
@@ -38,12 +44,12 @@ class App extends Component {
 	}
 
 	handleMessageSubmit(message) {
-		if(this.state.messages.length > 5){
-			const messages = [this.state.messages.slice(0, -1), message];
+		const size = 30
+		if(this.state.messages.length > size){
+			const messages = [...this.state.messages.slice(1, size+1), message];
 			this.setState({messages});
 			socket.emit('message', message);
-		}
-		else{
+		} else{
 		const messages = [...this.state.messages, message];
 		this.setState({messages});
 		socket.emit('message', message)
